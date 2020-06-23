@@ -1,0 +1,57 @@
+﻿@model WebApplication2.Database.nsx
+@{
+    ViewBag.Title = "chi_tiet_nsx";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>chi_tiet_nsx</h2>
+
+<div>
+    <h4>nsx</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_nsx)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_nsx)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dia_chi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dia_chi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit_nsx", new { id = Model.id_nsx }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

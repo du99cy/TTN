@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication2.Database.nsx>
+@{
+    ViewBag.Title = "danh_sach_nsx";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Danh sách nhà sản xuất</h2>
+
+<p>
+    @Html.ActionLink("Create New", "add_nsx")
+</p>
+<div>
+    <h2>Tìm từ khóa</h2>
+    <form>
+        <input type="text" name="search" id="search" />
+        <button type="submit">Tìm</button>
+    </form>
+</div>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ten_nsx)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("delete_nsx", "Admin", new { id = item.id_nsx }))
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ten_nsx)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit_nsx", new { id = item.id_nsx }) |
+                    @Html.ActionLink("Details", "chi_tiet_nsx", new { id = item.id_nsx }) |
+                    <input type="submit" value="delete" onclick="return confirm('bạn chắc chắn muốn xóa @item.ten_nsx');" />
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
