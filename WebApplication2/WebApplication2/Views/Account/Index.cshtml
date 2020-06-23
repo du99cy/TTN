@@ -1,0 +1,238 @@
+﻿
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
+<div style="position:fixed;z-index:0;top:150px;left:350px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 alert alert-info">
+                <h3 class="text-center">Login</h3>
+                <form id="loginForm">
+                    <div id="msg">
+                        <div class="alert alert-danger">
+                            <span class="glyphicon glyphicon-remove"></span><strong>Invalid email or password</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class=" glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" name="Email" id="loginEmail" placeholder="Email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name="Password" id="logPassword" placeholder="Password" />
+                        </div>
+                    </div>
+
+                </form>
+                <div class="form-group">
+                    <button class="btn btn-info form-control" type="submit" onclick="LogIn()">
+                        <i class="glyphicon glyphicon-log-in">
+                            Login
+                        </i>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <a href="#" style="float:left">Forgot password?</a><a href="#" style="float:right;cursor:pointer;" onclick="SignUp()">Sign Up</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div style="background-image:url(/Images/bike4.jpg);background-repeat:no-repeat;background-size:cover;background-position:center;height:100vh;width:100vw;position:fixed;top:0;left:0;z-index:-1;">
+</div>
+@*Design modal for registration form*@
+
+<div class="modal fade" id="ShowModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h4>Registration form</h4>
+                <div id="message1">
+                    <div class="alert alert-success">
+                        <span class="glyphicon glyphicon-ok"></span><strong>Registrate Success</strong>
+                    </div>
+                </div>
+                <div id="message2">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>Error!!!Registration not complete</strong>
+                    </div>
+                </div>
+                <div id="message3">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>confirm password not matches password</strong>
+                    </div>
+                </div>
+                <div id="message4">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>this email is exist</strong>
+                    </div>
+                </div>
+                <div id="message5">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>password not enough strong </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form id="RegistrationForm">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class=" glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name="UserName" id="user" placeholder="User Name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class=" glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" name="Email" id="Email" placeholder="Email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name="Password" id="Password" placeholder="password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                            <input class="form-control" type="password" name="xac_nhan_password" id="confirmPassword" placeholder="enter password one more time" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class=" glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name="ten_khach_hang" id="customerName" placeholder="Customer Name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class=" glyphicon glyphicon-phone"></i></span>
+                            <input class="form-control" type="text" name="SDT" id="phoneNumber" placeholder="Phone Number" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class=" glyphicon glyphicon-map-marker"></i></span>
+                            <input class="form-control" type="text" name="dia_chi" id="customerAddress" placeholder="Address" />
+                        </div>
+                    </div>
+
+                </form>
+                <div class="form-group">
+                    <button class="btn btn-info form-control" type="submit" onclick="SaveForm()">
+                        <i class="glyphicon glyphicon-registration-mark"></i>
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $("#msg").hide();
+     function LogIn() {
+
+        var data = $("#loginForm").serialize();
+        $.ajax({
+            type:"post",
+            data:data,
+            url: "/Account/Login",
+            success: function (result) {
+                if (result == "succcess") {
+                    $("#msg").hide();
+                    window.location.href = "@Url.Action("Index","Home")";
+                }
+                else {
+                    $("#msg").show();
+
+                }
+            }
+        })
+    }
+    function SignUp() {
+        $("#ShowModal").modal();
+        $("#message1").hide();
+        $("#message2").hide();
+        $("#message3").hide();
+        $("#message4").hide();
+        $("#message5").hide();
+    }
+    function SaveForm() {
+        var username = $("#user").val();
+        var email = $("#Email").val();
+        var password = $("#Password").val();
+        var confirmPassword = $("#confirmPassword").val();
+        var name = $("#customerName").val();
+        var phone = $("#phoneNumber").val();
+        var address = $("#customerAddress").val();
+        if (username == "" || email == "" || password == "" || name == "" || phone == "" || address == "" || confirmPassword=="") {
+            $("#message1").hide();
+            $("#message2").show();
+            $("#message3").hide();
+            $("#message4").hide();
+            $("#message5").hide();
+            return;
+        }
+        if (password.length < 8) {
+            $("#message1").hide();
+            $("#message2").hide();
+            $("#message3").hide();
+            $("#message4").hide();
+            $("#message5").show();
+        }
+        if (password != confirmPassword)
+        {
+            $("#message1").hide();
+            $("#message2").hide();
+            $("#message3").show();
+            $("#message4").hide();
+            $("#message5").hide();
+            return;
+        }
+        else {
+            var data = $("#RegistrationForm").serialize();
+            $.ajax({
+                type: "post",
+                data: data,
+                url: "/Account/SaveData",
+
+                success: function (result) {
+                    if (result == "success") {
+                        $("#message1").show();
+                        $("#message2").hide();
+                        $("#message3").hide();
+                        $("#message4").hide();
+                        $("#message5").hide();
+                        $("#RegistrationForm")[0].reset()
+                        window.location.href = "@Url.Action("Index")"
+                    }
+                    else {
+                        $("#message1").hide();
+                        $("#message2").hide();
+                        $("#message3").hide();
+                        $("#message4").show();
+                        $("#message5").hide();
+                    }
+                }
+            })
+        }
+    }
+
+
+</script>
