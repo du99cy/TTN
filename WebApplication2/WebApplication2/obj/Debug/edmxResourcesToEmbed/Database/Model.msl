@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BikeStoreShoppingModelStoreContainer" CdmEntityContainer="BikeStoreShoppingEntities">
+    <EntitySetMapping Name="chi_tiet_don_dat_hang">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.chi_tiet_don_dat_hang">
+        <MappingFragment StoreEntitySet="chi_tiet_don_dat_hang">
+          <ScalarProperty Name="id_don_dat_hang" ColumnName="id_don_dat_hang" />
+          <ScalarProperty Name="id_muc" ColumnName="id_muc" />
+          <ScalarProperty Name="id_xe" ColumnName="id_xe" />
+          <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+          <ScalarProperty Name="gia_ban" ColumnName="gia_ban" />
+          <ScalarProperty Name="giam_gia" ColumnName="giam_gia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cua_hang">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.cua_hang">
+        <MappingFragment StoreEntitySet="cua_hang">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="id_cua_hang" ColumnName="id_cua_hang" />
+          <ScalarProperty Name="ten_cua_hang" ColumnName="ten_cua_hang" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dat_hang">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.dat_hang">
+        <MappingFragment StoreEntitySet="dat_hang">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="id_don_dat_hang" ColumnName="id_don_dat_hang" />
+          <ScalarProperty Name="id_khach_hang" ColumnName="id_khach_hang" />
+          <ScalarProperty Name="ngay_dat_hang" ColumnName="ngay_dat_hang" />
+          <ScalarProperty Name="ngay_giao_hang" ColumnName="ngay_giao_hang" />
+          <ScalarProperty Name="tien_ship" ColumnName="tien_ship" />
+          <ScalarProperty Name="so_tien_khach_duoc_giam" ColumnName="so_tien_khach_duoc_giam" />
+          <ScalarProperty Name="id_nhan_vien_ban_hang" ColumnName="id_nhan_vien_ban_hang" />
+          <ScalarProperty Name="id_nhan_vien_giao_hang" ColumnName="id_nhan_vien_giao_hang" />
+          <ScalarProperty Name="id_cua_hang" ColumnName="id_cua_hang" />
+          <ScalarProperty Name="tong_tien" ColumnName="tong_tien" />
+          <ScalarProperty Name="is_dang_giao_hang" ColumnName="is_dang_giao_hang" />
+          <ScalarProperty Name="is_da_giao_hang" ColumnName="is_da_giao_hang" />
+          <ScalarProperty Name="is_huy_don_hang" ColumnName="is_huy_don_hang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khach_hang">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.khach_hang">
+        <MappingFragment StoreEntitySet="khach_hang">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="id_khach_hang" ColumnName="id_khach_hang" />
+          <ScalarProperty Name="ten_khach_hang" ColumnName="ten_khach_hang" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+          <ScalarProperty Name="so_tien_duoc_giam" ColumnName="so_tien_duoc_giam" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chuc_vu">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.chuc_vu">
+        <MappingFragment StoreEntitySet="chuc_vu">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="id_chuc_vu" ColumnName="id_chuc_vu" />
+          <ScalarProperty Name="ten_chuc_vu" ColumnName="ten_chuc_vu" />
+          <ScalarProperty Name="luong" ColumnName="luong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nhan_viens">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.nhan_viens">
+        <MappingFragment StoreEntitySet="nhan_viens">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="id_nhan_vien" ColumnName="id_nhan_vien" />
+          <ScalarProperty Name="ten_nhan_vien" ColumnName="ten_nhan_vien" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+          <ScalarProperty Name="ngay_vao_lam_viec" ColumnName="ngay_vao_lam_viec" />
+          <ScalarProperty Name="id_chuc_vu" ColumnName="id_chuc_vu" />
+          <ScalarProperty Name="id_cua_hang" ColumnName="id_cua_hang" />
+          <ScalarProperty Name="id_nguoi_quan_li" ColumnName="id_nguoi_quan_li" />
+          <ScalarProperty Name="is_dang_lam_viec" ColumnName="is_dang_lam_viec" />
+          <ScalarProperty Name="is_nghi_viec" ColumnName="is_nghi_viec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chi_tiet_nhap_hang">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.chi_tiet_nhap_hang">
+        <MappingFragment StoreEntitySet="chi_tiet_nhap_hang">
+          <ScalarProperty Name="id_hoa_don_nhap" ColumnName="id_hoa_don_nhap" />
+          <ScalarProperty Name="id_muc" ColumnName="id_muc" />
+          <ScalarProperty Name="id_xe" ColumnName="id_xe" />
+          <ScalarProperty Name="gia_nhap" ColumnName="gia_nhap" />
+          <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+          <ScalarProperty Name="chiet_khau" ColumnName="chiet_khau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="don_nhap_hang">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.don_nhap_hang">
+        <MappingFragment StoreEntitySet="don_nhap_hang">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="id_hoa_don_nhap" ColumnName="id_hoa_don_nhap" />
+          <ScalarProperty Name="id_nsx" ColumnName="id_nsx" />
+          <ScalarProperty Name="id_chu_kho" ColumnName="id_chu_kho" />
+          <ScalarProperty Name="ngay_nhap_hang" ColumnName="ngay_nhap_hang" />
+          <ScalarProperty Name="id_cua_hang" ColumnName="id_cua_hang" />
+          <ScalarProperty Name="tong_tien" ColumnName="tong_tien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nsxes">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.nsx">
+        <MappingFragment StoreEntitySet="nsx">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="id_nsx" ColumnName="id_nsx" />
+          <ScalarProperty Name="ten_nsx" ColumnName="ten_nsx" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hang_xe">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.hang_xe">
+        <MappingFragment StoreEntitySet="hang_xe">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="ten_hang" ColumnName="ten_hang" />
+          <ScalarProperty Name="id_hang_xe" ColumnName="id_hang_xe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khoes">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.kho">
+        <MappingFragment StoreEntitySet="kho">
+          <ScalarProperty Name="id_cua_hang" ColumnName="id_cua_hang" />
+          <ScalarProperty Name="id_xe" ColumnName="id_xe" />
+          <ScalarProperty Name="so_luong_khong_loi" ColumnName="so_luong_khong_loi" />
+          <ScalarProperty Name="so_luong_bi_loi" ColumnName="so_luong_bi_loi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loai_xe">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.loai_xe">
+        <MappingFragment StoreEntitySet="loai_xe">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="ten_loai" ColumnName="ten_loai" />
+          <ScalarProperty Name="id_loai_xe" ColumnName="id_loai_xe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xes">
+      <EntityTypeMapping TypeName="BikeStoreShoppingModel.xe">
+        <MappingFragment StoreEntitySet="xe">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="id_xe" ColumnName="id_xe" />
+          <ScalarProperty Name="ten_xe" ColumnName="ten_xe" />
+          <ScalarProperty Name="id_hang_xe" ColumnName="id_hang_xe" />
+          <ScalarProperty Name="id_loai_xe" ColumnName="id_loai_xe" />
+          <ScalarProperty Name="model_year" ColumnName="model_year" />
+          <ScalarProperty Name="gia_ban" ColumnName="gia_ban" />
+          <ScalarProperty Name="bao_hanh" ColumnName="bao_hanh" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="khuyen_mai" ColumnName="khuyen_mai" />
+          <ScalarProperty Name="id_nsx" ColumnName="id_nsx" />
+          <ScalarProperty Name="is_con_hang" ColumnName="is_con_hang" />
+          <ScalarProperty Name="is_het_hang" ColumnName="is_het_hang" />
+          <ScalarProperty Name="is_khong_kinh_doanh" ColumnName="is_khong_kinh_doanh" />
+          <ScalarProperty Name="anh_xe" ColumnName="anh_xe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

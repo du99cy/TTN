@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e5af93a865564482b169a3c4c34512df" Name="Diagram1">
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.chi_tiet_don_dat_hang" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.cua_hang" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.dat_hang" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.khach_hang" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.chuc_vu" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.nhan_viens" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.chi_tiet_nhap_hang" Width="1.5" PointX="13.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.don_nhap_hang" Width="1.5" PointX="11.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.nsx" Width="1.5" PointX="1.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.hang_xe" Width="1.5" PointX="1.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.kho" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.loai_xe" Width="1.5" PointX="1.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikeStoreShoppingModel.xe" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_don_dat_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_xe" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_cua_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_cua_hang1" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_cua_hang2" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_cuaHang" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_khach_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_nhan_vien_ban_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_nhan_vien_giao_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_chuc_vu" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_chu_kho" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_nguoi_quan_li" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_hoa_don_nhap" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_xe1" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_nsx" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_nsx1" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_idXe" ManuallyRouted="false" />
+        <AssociationConnector Association="BikeStoreShoppingModel.fk_id_loai" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
