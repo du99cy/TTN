@@ -247,5 +247,17 @@ namespace WebApplication2.Areas.Admin.Controllers
             return View(li_xe);
         }
        
+
+        public ActionResult danh_sach_cua_hang(string search)
+        {
+            List<cua_hang> li_ch = db.Database.SqlQuery<cua_hang>("tim_kiem_cua_hang @search", new SqlParameter("@search",search ??(object)DBNull.Value)).ToList();
+            return View(li_ch);
+        }
+
+        public ActionResult chi_tiet_cua_hang(string id_cua_hang)
+        {
+            cua_hang ch = db.cua_hang.FirstOrDefault(m => m.id_cua_hang == id_cua_hang);
+            return View(ch);
+        }
     }
 }
