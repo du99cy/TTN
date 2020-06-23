@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication2.Database.chi_tiet_don_dat_hang>
+@{
+    ViewBag.Title = "tim_kiem_thong_tin";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>tim_kiem_thong_tin</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.id_muc)
+        </th>
+        <th>
+            Tên xe
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.so_luong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gia_ban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.giam_gia)
+        </th>
+        <th>Thành tiền</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.id_muc)
+            </td>
+
+            <td>
+                @Html.DisplayFor(m => item.id_xe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.so_luong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gia_ban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.giam_gia)
+            </td>
+            @{
+                decimal thanh_tien = item.gia_ban * item.so_luong * (1 - item.giam_gia);
+            }
+            <td>
+                @thanh_tien
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+
