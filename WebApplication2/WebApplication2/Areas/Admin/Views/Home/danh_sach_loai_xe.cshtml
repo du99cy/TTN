@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebApplication2.Database.loai_xe>
+@{
+    ViewBag.Title = "danh_sach_loai_xe";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>danh_sach_loai_xe</h2>
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Loại xe</li>
+
+    </ol>
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Danh sách các loại xe
+            <a href="../Admin/add_loai_xe" class="btn btn-info float_right fa fa-plus">Add New</a>
+        </div>
+        <div>
+            <h2>Tìm kiếm</h2>
+            <form method="post">
+                <input type="text" name="search" />
+                <button type="submit">Tìm</button>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên loại</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên loại</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            using (Html.BeginForm("delete_loai_xe", "Admin", new { id = item.id_loai_xe }))
+                            {
+                                <tr>
+                                    @*<td>@(++count)</td>*@
+                                    <td>@item.ten_loai</td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "edit_loai_xe", new { id_loai_xe = item.id_loai_xe })  |
+                                        @Html.ActionLink("Chi tiết", "chi_tiet_loai_xe", new { id_loai_xe = item.id_loai_xe })  |
+                                        <input type="submit" value="delete" onclick="return confirm('Delete @item.ten_loai');" />
+                                    </td>
+
+
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

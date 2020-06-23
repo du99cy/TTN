@@ -1765,6 +1765,17 @@
     <Content Include="Areas\AdminStyle\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\danh_sach_hang_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\chi_tiet_hang_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\add_hang_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\edit_hang_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\danh_sach_loai_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\chi_tiet_loai_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\add_loai_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\edit_loai_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\danh_sach_nsx.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\chi_tiet_nsx.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\add_nsx.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Edit_nsx.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
