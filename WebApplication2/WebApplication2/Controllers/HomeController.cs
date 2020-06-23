@@ -143,5 +143,63 @@ namespace WebApplication2.Controllers
             Session["cart"] = li_in_cart;
             return RedirectToAction("view_product_in_cart");
         }
+        public ActionResult ConfirmOrder()
+        {
+            khach_hang cus = (khach_hang)Session["user"];
+            return View(cus);
+        }
+        public ActionResult InsertOrderIntoDatabase()
+        {
+            using (BikeStoreShoppingEntities db = new BikeStoreShoppingEntities())
+            {
+
+                khach_hang cus = (khach_hang)Session["user"];
+                List<Items> li_items = (List<Items>)Session["cart"];
+                db.Database.ExecuteSqlCommand("insert_dh @id_khach_hang,@ngay_dat_hang,@tien_ship,@is_dang_giao_hang,@is_da_giao_hang,@is_huy_don_hang",
+                    new SqlParameter("@id_khach_hang", cus.id_khach_hang),
+                    new SqlParameter("@ngay_dat_hang", DateTime.Now),
+
+                    new SqlParameter("@tien_ship", 20),
+                    new SqlParameter("@is_dang_giao_hang", true),
+                    new SqlParameter("@is_da_giao_hang", false),
+                    new SqlParameter("@is_huy_don_hang", false)
+                    );
+                string orderId = (from s in db.dat_hang where s.id_khach_hang == cus.id_khach_hang orderby s.ngay_dat_hang descending select s.id_don_dat_hang).FirstOrDefault();
+
+                for (int i = 0; i < li_items.Count; ++i)
+                {
+                    db.Database.ExecuteSqlCommand("insert_ctddh @id_don_dat_hang,@id_muc,@id_xe,@so_luong",
+                        new SqlParameter("@id_don_dat_hang", orderId),
+                        new SqlParameter("@id_muc", i + 1),
+                        new SqlParameter("@id_xe", li_items[i].product.id_xe),
+                        new SqlParameter("@so_luong", li_items[i].quantity)
+                        );
+                }
+                Session["cart"] = null;
+                return RedirectToAction("OrderHistory");
+
+            }
+
+        }
+        public ActionResult OrderHistory()
+        {
+            using (BikeStoreShoppingEntities db = new BikeStoreShoppingEntities())
+            {
+                khach_hang cus = (khach_hang)Session["user"];
+                //List<chi_tiet_don_dat_hang> order_items = db.Database.SqlQuery<chi_tiet_don_dat_hang>("find_order @id_khach_hang", new SqlParameter("@id_khach_hang", cus.id_khach_hang)).ToList();
+                List<dat_hang> orders = (from s in db.dat_hang where s.id_khach_hang == cus.id_khach_hang orderby s.ngay_dat_hang descending select s).ToList();
+                return View(orders);
+
+
+            }
+        }
+        public ActionResult CancelOrder(string id)
+        {
+            using (BikeStoreShoppingEntities db = new BikeStoreShoppingEntities())
+            {
+                db.Database.ExecuteSqlCommand("cancel_order @id_don_dat_hang", new SqlParameter("@id_don_dat_hang", id));
+            }
+            return RedirectToAction("OrderHistory");
+        }
     }
 }
