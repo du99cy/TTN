@@ -159,5 +159,93 @@ namespace WebApplication2.Areas.Admin.Controllers
             db.Database.ExecuteSqlCommand("delete_nsx @id_nsx", new SqlParameter("@id_nsx", id));
             return RedirectToAction("danh_sach_nsx");
         }
+
+
+        //đơn nhập hàng
+
+        public ActionResult danh_sach_don_nhap_hang(string search)
+        {
+            List<don_nhap_hang> li_dnh = db.Database.SqlQuery<don_nhap_hang>("tim_kiem_don_nhap_hang @search", new SqlParameter("@search", search ?? (object)DBNull.Value)).ToList();
+            return View(li_dnh);
+        }
+        public ActionResult chi_tiet_dnh(string id)
+
+        {
+            don_nhap_hang dnh = db.don_nhap_hang.FirstOrDefault(m => m.id_hoa_don_nhap == id);
+            return View(dnh);
+        }
+        //public ActionResult add_dnh()
+        //{
+        //    ViewBag.idnsx=new SelectList(db.)
+        //    return View();
+        //}
+        [HttpPost]
+        public ActionResult add_dnh([Bind(Include = "id_nsx,id_chu_kho,ngay_nhap_hang")] don_nhap_hang dnh)
+        {
+            dnh.ngay_nhap_hang = DateTime.Now;
+            db.Database.ExecuteSqlCommand("insert_dnh @id_nsx,@id_chu_kho,@ngay_nhap_hang",
+                new SqlParameter("@id_nsx", dnh.id_nsx),
+                new SqlParameter("@id_chu_kho", dnh.id_chu_kho),
+                new SqlParameter("@ngay_nhap_hang", dnh.ngay_nhap_hang)
+                );
+            return RedirectToAction("danh_sach_don_nhap_hang");
+        }
+        //Xe đạp
+        public ActionResult danh_sach_xe_dap(string search)
+        {
+            List<xe> li_xe = db.Database.SqlQuery<xe>("tim_kiem_xe @search", new SqlParameter("search", search ?? (object)DBNull.Value)).ToList();
+            return View(li_xe);
+        }
+        public ActionResult add_xe()
+        {
+            ViewBag.id_hang_xe = new SelectList(db.hang_xe, "id_hang_xe", "ten_hang");
+            ViewBag.id_loai_xe = new SelectList(db.loai_xe, "id_loai_xe", "ten_loai");
+            ViewBag.id_nsx = new SelectList(db.nsxes, "id_nsx", "ten_nsx");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult add_xe(xe x, HttpPostedFileBase file)
+        {
+            string pic = null;
+            if (file != null)
+            {
+                pic = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine(Server.MapPath("~/ProductImages/"), pic);
+                file.SaveAs(path);
+            }
+            x.anh_xe = pic;
+
+            db.Database.ExecuteSqlCommand("add_xe @ten_xe,@id_hang_xe,@id_loai_xe,@model_year,@gia_ban,@id_nsx,@anh_xe",
+                new SqlParameter("@ten_xe", x.ten_xe),
+                new SqlParameter("@id_hang_xe", x.id_hang_xe),
+                new SqlParameter("@id_loai_xe", x.id_loai_xe),
+                new SqlParameter("@model_year", x.model_year),
+                new SqlParameter("@gia_ban", x.gia_ban),
+                new SqlParameter("@id_nsx", x.id_nsx),
+                new SqlParameter("@anh_xe", x.anh_xe)
+                );
+            return RedirectToAction("danh_sach_xe_dap");
+        }
+        public ActionResult danh_sach_don_dat_hang(string search)
+        {
+            List<dat_hang> li_dh = db.Database.SqlQuery<dat_hang>("danh_sach_dat_hang @search", new SqlParameter("@search", search ?? (object)DBNull.Value)).ToList();
+            //List<dat_hang> li_dh = db.dat_hang.ToList();
+            return View(li_dh);
+        }
+        public ActionResult tim_kiem_thong_tin(string id_khach_hang, string id_don_hang)
+        {
+            List<chi_tiet_don_dat_hang> ct = db.Database.SqlQuery<chi_tiet_don_dat_hang>("thong_tin_don_hang @ma_khach_hang,@ma_don_hang",
+                new SqlParameter("@ma_khach_hang", id_khach_hang),
+                new SqlParameter("@ma_don_hang", id_don_hang)
+                ).ToList();
+            return View(ct);
+        }
+
+        public ActionResult tim_kiem_xe_theo_hang(string ten_hang)
+        {
+            List<xe> li_xe = db.Database.SqlQuery<xe>("tim_kiem_xe_theo_hang @ten_hang", new SqlParameter("@ten_hang", ten_hang)).ToList();
+            return View(li_xe);
+        }
+       
     }
 }

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebApplication2.Database.xe>
+@{
+    ViewBag.Title = "danh_sach_xe_dap";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>danh_sach_xe_dap</h2>
+
+<div>
+    <h2>Tìm kiếm</h2>
+    <form method="post">
+        <input type="text" name="search" id="search">
+        <button type="submit">Tìm</button>
+    </form>
+</div>
+<p>
+    @Html.ActionLink("Create New", "add_xe")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ten_xe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_hang_xe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_loai_xe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model_year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gia_ban)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ten_xe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_hang_xe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_loai_xe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model_year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gia_ban)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

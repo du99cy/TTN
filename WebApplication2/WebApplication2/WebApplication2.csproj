@@ -1776,6 +1776,12 @@
     <Content Include="Areas\Admin\Views\Home\chi_tiet_nsx.cshtml" />
     <Content Include="Areas\Admin\Views\Home\add_nsx.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Edit_nsx.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\danh_sach_don_nhap_hang.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\danh_sach_xe_dap.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\add_xe.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\danh_sach_don_dat_hang.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\tim_kiem_thong_tin.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\tim_kiem_xe_theo_hang.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
