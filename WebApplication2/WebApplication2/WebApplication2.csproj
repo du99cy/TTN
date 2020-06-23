@@ -1783,6 +1783,8 @@
     <Content Include="Areas\Admin\Views\Home\danh_sach_don_dat_hang.cshtml" />
     <Content Include="Areas\Admin\Views\Home\tim_kiem_thong_tin.cshtml" />
     <Content Include="Areas\Admin\Views\Home\tim_kiem_xe_theo_hang.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\chi_tiet_dnh.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\add_dnh.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
