@@ -1685,6 +1685,7 @@
     <Content Include="Images\bike_slider1.jpg" />
     <Content Include="Images\bike_slider2.jpg" />
     <Content Include="Images\bike_slider3.jpg" />
+    <Content Include="Images\searchIcon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Database\Model.edmx">
@@ -1828,6 +1829,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\view_product_in_cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
