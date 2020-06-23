@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebApplication2.Database.dat_hang>
+@using WebApplication2.Database;
+@{
+    ViewBag.Title = "OrderHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="text-center" style="font-weight:bold;">Orders History</h2>
+@using (BikeStoreShoppingEntities db = new BikeStoreShoppingEntities())
+{
+    foreach (var item in Model)
+    {
+        List<chi_tiet_don_dat_hang> li_orders_items = db.chi_tiet_don_dat_hang.Where(x => x.id_don_dat_hang == item.id_don_dat_hang).ToList();
+        <hr />
+        <div style="background:rgb(199, 162, 162);border-radius:20px;">
+            <div class="row">
+                <div class="col-md-6"><div class="text-center" style="font-weight:bold">Order date:</div></div>
+                <div class="col-md-5"><div class="text-center" style="font-weight:bold">@item.ngay_dat_hang</div></div>
+                <div class="col-md-1"><div class="text-center"></div></div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6"><div class="text-center" style="font-weight:bold">Status</div></div>
+                <div class="col-md-5"><div class="text-center" style="font-weight:bold">@(item.is_dang_giao_hang ? "delivering" : "") @(item.is_da_giao_hang ? "delivered" : "") @(item.is_huy_don_hang ? "cancel order" : "")</div></div>
+                @if (item.is_dang_giao_hang)
+                {
+                    <div class="col-md-1"><div class="text-center"><a href="@Url.Action("CancelOrder",new { id=item.id_don_dat_hang})" style="text-decoration:none;font-weight:bold;color:#000;">Cancel</a></div></div>
+                }
+            </div>
+            <hr />
+
+            @foreach (var item2 in li_orders_items)
+            {
+                <div class="row">
+                    <div class="col-md-1"><div class="text-center">@item2.id_muc</div></div>
+                    <div class="col-md-3"><div class="text-center"><img src="~/ProductImages/@item2.xe.anh_xe" class="img-responsive" width="120" /></div></div>
+                    <div class="col-md-2"><div class="text-center">@item2.xe.ten_xe</div></div>
+                    <div class="col-md-2"><div class="text-center">@item2.gia_ban</div></div>
+                    <div class="col-md-2"><div class="text-center">@item2.so_luong</div></div>
+
+                    <div class="col-md-2"><div class="text-center">@(item2.gia_ban * item2.so_luong)</div></div>
+                </div>
+                if (li_orders_items.IndexOf(item2) < li_orders_items.Count - 1)
+                {
+                    <hr />
+                }
+
+            }
+
+
+            <div class="row">
+                <div class="col-md-10"><div class="text-center" style="font-weight:bold">Total</div></div>
+                <div class="col-md-2"><div class="text-center" style="font-weight:bold">@item.tong_tien</div></div>
+            </div>
+        </div>
+    }
+}

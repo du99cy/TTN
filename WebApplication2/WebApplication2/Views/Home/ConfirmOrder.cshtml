@@ -1,0 +1,85 @@
+﻿@model WebApplication2.Database.khach_hang
+@using WebApplication2.Models.Home
+
+@{
+    ViewBag.Title = "ConfirmOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-center">Confirm Order</h2>
+
+<table>
+    <tr>
+        <td>
+            Customer Name:
+        </td>
+        <td>
+            @Model.ten_khach_hang
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Phone number:
+        </td>
+        <td>
+            @Model.SDT
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            Address:
+        </td>
+        <td>
+            @Model.dia_chi
+        </td>
+    </tr>
+
+
+
+</table>
+<hr />
+<div class="row">
+    <div class="col-md-1"><div class="text-center">numerical order</div></div>
+    <div class="col-md-3"><div class="text-center"></div></div>
+    <div class="col-md-2"><div class="text-center" style="font-weight:bold;">Product Name</div></div>
+    <div class="col-md-2"><div class="text-center" style="font-weight:bold;">Price</div></div>
+    <div class="col-md-1"><div class="text-center" style="font-weight:bold;">Discount</div></div>
+    <div class="col-md-1"><div class="text-center" style="font-weight:bold;">Quantity</div></div>
+</div>
+<div></div>
+@if (Session["cart"] != null)
+{
+    decimal total_price = 0;
+    List<Items> li_items = (List<Items>)Session["cart"];
+    foreach (var item in li_items)
+    {
+
+        <div class="row">
+            <div class="col-md-1"><div class="text-center">@(li_items.IndexOf(item) + 1)</div></div>
+            <div class="col-md-3"><div class="text-center"><img src="~/ProductImages/@item.product.anh_xe" width="120" class="img-responsive" /></div></div>
+            <div class="col-md-2"><div class="text-center">@item.product.ten_xe</div></div>
+            <div class="col-md-2"><div class="text-center">@(item.product.gia_ban * 1000)</div></div>
+            <div class="col-md-1"><div class="text-center">@item.product.khuyen_mai</div></div>
+            <div class="col-md-1">
+                <div class="text-center">
+
+                    @item.quantity
+
+                </div>
+            </div>
+            <div class="col-md-2"><div>@(item.product.gia_ban * item.quantity * (1 - item.product.khuyen_mai) * 1000)</div></div>
+
+        </div>
+        total_price = Convert.ToDecimal(total_price + @item.product.gia_ban * @item.quantity * (1 - @item.product.khuyen_mai));
+
+    }
+    <div class="row">
+        <div class="col-md-9" style="text-align:center;font-weight:bold;">Total</div>
+        <div class="col-md-3"><span style="font-weight:bold;">@Math.Round(total_price) .000đ</span></div>
+    </div>
+}
+<div class="text-center">
+    <button class="btn btn-info" onclick="location.href='@Url.Action("InsertOrderIntoDatabase")'" style="height:50px;width:150px;">Confirm the order</button>
+</div>
+
+
