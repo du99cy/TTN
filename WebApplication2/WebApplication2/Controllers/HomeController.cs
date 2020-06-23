@@ -29,12 +29,12 @@ namespace WebApplication2.Controllers
         }
         public ActionResult add_to_cart(string productId, string buyNow, int quantity = 1)
         {
-            //if (Session["user"] == null)
-            //{
-              //  return RedirectToAction("Index", "Account");
-            //}
-            //else
-            //{
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Account");
+            }
+            else
+            {
                 if (Session["cart"] == null)
                 {
                     List<Items> li_in_cart = new List<Items>();
@@ -83,7 +83,7 @@ namespace WebApplication2.Controllers
                 return RedirectToAction("Details", new { id = productId });
 
 
-//            }
+           }
         }
         public ActionResult remove_from_cart(string productId)
         {
