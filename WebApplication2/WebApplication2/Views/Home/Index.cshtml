@@ -56,75 +56,76 @@
         </a>
     </div>
 </div>
-@*<div class="loc-sp">
-        <ul>
-        <li><a href="#">Hãng xe</a>
-             <div class="sub-1">
-                 <ul>
-                    <li>@Html.ActionLink("Electra","tim_san_pham_theo_hang",new { ten_hang = "Electra"})</li>
-                    <li>@Html.ActionLink("Haro", "tim_san_pham_theo_hang", new { ten_hang = "Haro" })</li>
-                    <li>@Html.ActionLink("Helle", "tim_san_pham_theo_hang", new { ten_hang = "Heller" })</li>
-                    <li>@Html.ActionLink("Pure Cycles", "tim_san_pham_theo_hang", new { ten_hang = "Pure Cycles" })</li>
-                    <li>@Html.ActionLink("Ritchey", "tim_san_pham_theo_hang", new { ten_hang = "Ritchey" })</li>
-                    <li>@Html.ActionLink("Strider", "tim_san_pham_theo_hang", new { ten_hang = "Strider" })</li>
-                    <li>@Html.ActionLink("Sun Bicycles", "tim_san_pham_theo_hang", new { ten_hang = "Sun Bicycles" })</li>
-                    <li>@Html.ActionLink("Surly", "tim_san_pham_theo_hang", new { ten_hang = "Surly" })</li>
-                    <li>@Html.ActionLink("Trek", "tim_san_pham_theo_hang", new { ten_hang = "Trek" })</li>
-                 </ul>
-             </div>
-            </li>
 
-
-
-        <li><a href="#">Loại xe</a>
-            <div class="sub-1">
-                <ul>
-                    <li>@Html.ActionLink("Children Bicycles", "tim_san_pham_theo_loai", new { ten_loai = "Children Bicycles" })</li>
-                    <li>@Html.ActionLink("Comfort Bicycles", "tim_san_pham_theo_loai", new { ten_loai = "Comfort Bicycles" })</li>
-                    <li>@Html.ActionLink("Cruisers Bicycles", "tim_san_pham_theo_loai", new { ten_loai = "Cruisers Bicycles" })</li>
-                    <li>@Html.ActionLink("Cyclocross Bicycles", "tim_san_pham_theo_loai", new { ten_loai = "Cyclocross Bicycles" })</li>
-                    <li>@Html.ActionLink("Electric Bikes", "tim_san_pham_theo_loai", new { ten_loai = "Electric Bikes" })</li>
-                    <li>@Html.ActionLink("Mountain Bikes", "tim_san_pham_theo_loai", new { ten_loai = "Mountain Bikes" })</li>
-                    <li>@Html.ActionLink("Road Bikes", "tim_san_pham_theo_loai", new { ten_loai = "Road Bikes" })</li>
-                </ul>
-            </div>
-        </li>
-        <li>
-            <a href="#">Model Year</a>
-            <div class="sub-1">
-                <ul>
-                    <li>@Html.ActionLink("2016", "tim_san_pham_theo_model_year", new { model_year = 2016 })</li>
-                    <li>@Html.ActionLink("2017", "tim_san_pham_theo_model_year", new { model_year = 2017 })</li>
-                    <li>@Html.ActionLink("2018", "tim_san_pham_theo_model_year", new { model_year = 2018 })</li>
-                    <li>@Html.ActionLink("2019", "tim_san_pham_theo_model_year", new { model_year = 2019 })</li>
-
-                </ul>
-            </div>
-        </li>
-        <li>
-            <a href="#">Giá xe</a>
-            <div class="sub-1">
-                <ul>
-                    <li>@Html.ActionLink("Dưới 10 triệu ", "tim_san_pham_theo_gia", new { min_price=0,max_price = 10000 })</li>
-                    <li>@Html.ActionLink("Từ 10tr đến 20tr ", "tim_san_pham_theo_gia", new { min_price = 10000, max_price = 20000 })</li>
-                    <li>@Html.ActionLink("Từ 20tr đến 50tr ", "tim_san_pham_theo_gia", new { min_price = 20000, max_price = 50000 })</li>
-                    <li>@Html.ActionLink("Trên 50tr ", "tim_san_pham_theo_gia", new { min_price = 50000, max_price = 1000000 })</li>
-                </ul>
-            </div>
-        </li>
-        </ul>
-    </div>*@
 <div class="search">
     <h2>Search for product</h2>
     <form method="post">
         <div class="inputSearch">
-            <input class="contentSearch" name="search" type="text" placeholder="Enter product name in here...">
+            <input class="contentSearch" name="name" type="text" placeholder="Enter product name in here...">
             <button class="buttonSearch" type="submit">
                 <img src="~/Images/searchIcon.png" />
             </button>
         </div>
     </form>
 </div>
+<div class="loc-sp">
+        <ul>
+        <li><a href="#">Hãng xe<i class="glyphicon glyphicon-chevron-down" style="font-size:1.5rem;margin-left:5px;" ></i></a>
+             <div class="sub-1">
+                 <ul>
+                    <li>@Html.ActionLink("Electra","Index",new { brand_name = "Electra",method_name="hang_xe"})</li>
+                    <li>@Html.ActionLink("Haro", "Index", new { brand_name = "Haro",method_name="hang_xe" })</li>
+                    <li>@Html.ActionLink("Helle", "Index", new { brand_name = "Heller",method_name="hang_xe" })</li>
+                    <li>@Html.ActionLink("Pure Cycles", "Index", new { brand_name = "Pure Cycles",method_name="hang_xe" })</li>
+                    <li>@Html.ActionLink("Ritchey", "Index", new { brand_name = "Ritchey",method_name="hang_xe" })</li>
+                    <li>@Html.ActionLink("Strider", "Index", new { brand_name = "Strider",method_name="hang_xe"})</li>
+                    <li>@Html.ActionLink("Sun Bicycles", "Index", new { brand_name = "Sun Bicycles",method_name="hang_xe" })</li>
+                    <li>@Html.ActionLink("Surly", "Index", new { brand_name = "Surly",method_name="hang_xe" })</li>
+                    <li>@Html.ActionLink("Trek", "Index", new { brand_name = "Trek",method_name="hang_xe" })</li>
+                 </ul>
+             </div>
+            </li>
+
+
+
+        <li><a href="#">Loại xe<i class="glyphicon glyphicon-chevron-down" style="font-size:1.5rem;margin-left:5px;"></i></a>
+            <div class="sub-1">
+                <ul>
+                    <li>@Html.ActionLink("Children Bicycles", "Index", new { category_name = "Children Bicycles",method_name="loai_xe" })</li>
+                    <li>@Html.ActionLink("Comfort Bicycles", "Index", new { category_name = "Comfort Bicycles" ,method_name="loai_xe"})</li>
+                    <li>@Html.ActionLink("Cruisers Bicycles", "Index", new { category_name = "Cruisers Bicycles",method_name="loai_xe" })</li>
+                    <li>@Html.ActionLink("Cyclocross Bicycles", "Index", new { category_name = "Cyclocross Bicycles",method_name="loai_xe" })</li>
+                    <li>@Html.ActionLink("Electric Bikes", "Index", new { category_name = "Electric Bikes",method_name="loai_xe" })</li>
+                    <li>@Html.ActionLink("Mountain Bikes", "Index", new { category_name = "Mountain Bikes",method_name="loai_xe" })</li>
+                    <li>@Html.ActionLink("Road Bikes", "Index", new { category_name = "Road Bikes",method_name="loai_xe" })</li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#">Model Year<i class="glyphicon glyphicon-chevron-down" style="font-size:1.5rem;margin-left:5px;"></i></a>
+            <div class="sub-1">
+                <ul>
+                    <li>@Html.ActionLink("2016", "Index", new { model = 2016,method_name="model_year" })</li>
+                    <li>@Html.ActionLink("2017", "Index", new { model = 2017,method_name="model_year" })</li>
+                    <li>@Html.ActionLink("2018", "Index", new { model = 2018,method_name="model_year" })</li>
+                    <li>@Html.ActionLink("2019", "Index", new { model = 2019,method_name="model_year" })</li>
+
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#">Giá xe<i class="glyphicon glyphicon-chevron-down" style="font-size:1.5rem;margin-left:5px;"></i></a>
+            <div class="sub-1">
+                <ul>
+                    <li>@Html.ActionLink("Dưới 10 triệu ", "Index", new { price_max = 10000 ,method_name="theo_gia"})</li>
+                    <li>@Html.ActionLink("Từ 10tr đến 20tr ", "Index", new { price_min = 10000, price_max = 20000,method_name="theo_gia" })</li>
+                    <li>@Html.ActionLink("Từ 20tr đến 50tr ", "Index", new { price_min = 20000, price_max = 50000,method_name="theo_gia" })</li>
+                    <li>@Html.ActionLink("Trên 50tr ", "Index", new { price_min = 50000, method_name="theo_gia" })</li>
+                </ul>
+            </div>
+        </li>
+        </ul>
+    </div>
 
 <div class="row">
     <div class="col-md-12">

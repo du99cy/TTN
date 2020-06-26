@@ -14,11 +14,47 @@ namespace WebApplication2.Controllers
     public class HomeController : Controller
     {
         BikeStoreShoppingEntities db = new BikeStoreShoppingEntities();
-        public ActionResult Index(string search, int? page)
+        public ActionResult Index(int? page,string name=null,string brand_name=null,string category_name=null,short model=0,decimal price_min=0,decimal price_max=0,string method_name="name")
         {
             Session["session_cart"] = true;
             Session["session_add_cart_index"] = true;
-            IPagedList<xe> li_san_pham = db.Database.SqlQuery<xe>("tim_san_pham @search", new SqlParameter("@search", search ?? (object)DBNull.Value)).ToList().ToPagedList(page ?? 1, 32);
+            IPagedList<xe> li_san_pham = new PagedList<xe>(null, 1,32);
+            Session["method_name"] = method_name;
+            if ((string)Session["method_name"] == "name")
+            {
+               
+                    li_san_pham = db.Database.SqlQuery<xe>("tim_san_pham @search", new SqlParameter("@search", name ?? (object)DBNull.Value)).ToList().ToPagedList(page ?? 1, 32);
+                
+            }
+            else if ((string)Session["method_name"] == "hang_xe")
+            {
+                
+                
+                    li_san_pham = db.Database.SqlQuery<xe>("tim_san_pham_theo_hang @ten_hang", new SqlParameter("@ten_hang", brand_name)).ToList().ToPagedList(page ?? 1, 32);
+                
+            }
+            else if ((string)Session["method_name"] == "loai_xe")
+            {
+                
+                    li_san_pham = db.Database.SqlQuery<xe>("tim_san_pham_theo_loai @ten_loai", new SqlParameter("@ten_loai", category_name)).ToList().ToPagedList(page ?? 1, 32);
+            }
+            else if ((string)Session["method_name"] == "model_year")
+            {
+                
+                    li_san_pham = db.Database.SqlQuery<xe>("tim_san_pham_theo_model_year @model_year", new SqlParameter("@model_year", model)).ToList().ToPagedList(page ?? 1, 32);
+            }
+            else if ((string)Session["method_name"] == "theo_gia")
+            {
+                li_san_pham = db.Database.SqlQuery<xe>("tim_san_pham_theo_gia @min, @max",
+                new SqlParameter("@min", price_min),
+                new SqlParameter("@max", price_max)
+                ).ToList().ToPagedList(page ?? 1, 32);
+
+            }
+            else
+            {
+
+            }
             return View(li_san_pham);
         }
         public ActionResult Details(string id)

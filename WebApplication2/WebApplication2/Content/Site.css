@@ -244,21 +244,28 @@ footer {
 
 .loc-sp > ul {
     width: 100%;
-    height: 80px;
+    height: 50px;
     display: inline-flex;
     color: #fff;
     font-size: 2rem;
     justify-content: space-around;
     text-align: center;
 }
+.loc-sp >ul> li:hover
+{
+    font-size:2.2rem;
+    transition:.5s;
+}
 
     .loc-sp > ul > li > a {
         color: #000;
         text-decoration: none;
+        font-family:Montserrat;
+        line-height:50px;
     }
 
 .sub-1 {
-    background: rgba(0,100,0,0.8);
+    background: #f6e9e9;
     display: none;
 }
 
@@ -270,8 +277,14 @@ footer {
 }
 
     .loc-sp ul li:hover .sub-1 ul > li > a {
-        color: #fff;
+        color: #000;
         text-decoration: none;
+        font-family:Montserrat;
+        
+        
+    }
+    .loc-sp ul li:hover .sub-1 ul > li > a:hover {
+        font-size:2rem;
     }
 
 .user-cart {
