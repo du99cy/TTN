@@ -166,6 +166,6 @@
 
 </div>
 <div class="container">
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayItemSliceAndTotal = true })
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, method_name = Request.QueryString["method_name"],name=Request.QueryString["name"],brand_name=Request.QueryString["brand_name"],category_name=Request.QueryString["category_name"],model=Request.QueryString["model"],price_min=Request.QueryString["price_min"],price_max=Request.QueryString["price_max"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayItemSliceAndTotal = true })
 </div>
 
