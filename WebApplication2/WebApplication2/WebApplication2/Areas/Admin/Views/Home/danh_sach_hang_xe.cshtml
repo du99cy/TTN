@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WebApplication2.Database.hang_xe>
+@{
+    ViewBag.Title = "danh_sach_hang_xe";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Danh sách hãng xe</h2>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Hãng xe</li>
+
+    </ol>
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Danh sách các hãng xe
+            <a href="../Admin/add_hang_xe" class="btn btn-info float_right fa fa-plus">Add New</a>
+        </div>
+        <div>
+            <h2>Tìm kiếm</h2>
+            <form method="post">
+                <input type="text" name="search" />
+                <button type="submit">Tìm</button>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên hãng</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên hãng</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            using (Html.BeginForm("delete_hang_xe", "Admin", new { id = item.id_hang_xe }))
+                            {
+                                <tr>
+                                    @*<td>@(++count)</td>*@
+                                    <td>@item.ten_hang</td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "edit_hang_xe", new { id_hang_xe = item.id_hang_xe })  |
+                                        @Html.ActionLink("Chi tiết", "chi_tiet_hang_xe", new { id_hang_xe = item.id_hang_xe })  |
+                                        <input type="submit" value="delete" onclick="return confirm('Delete @item.ten_hang');" />
+                                    </td>
+
+
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+

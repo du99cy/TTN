@@ -1,0 +1,62 @@
+﻿@model WebApplication2.Database.xe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="align-content:center">Thông tin sản phẩm</h2>
+<div class="row thumbnail">
+    <div class=" col-md-6 col-sm-12 col-xs-12">
+        <img src="~/ProductImages/@Model.anh_xe" class="img-thumbnail">
+    </div>
+    <div class="infor_sp col-md-6 col-sm-12 col-xs-12">
+        <dl class="dl-horizontal" style="font-size:1.5rem;font-family:'Hind',sans-serif;">
+            <dt>Bike Name:</dt>
+            <dd>@Html.DisplayFor(m => m.ten_xe)</dd>
+
+            <dt>Brand of Bike:</dt>
+            <dd>@Html.DisplayFor(m => m.hang_xe.ten_hang)</dd>
+
+            <dt>Category of Bike:</dt>
+            <dd>@Html.DisplayFor(m => m.loai_xe.ten_loai)</dd>
+
+            <dt>Model Year:</dt>
+            <dd>@Html.DisplayFor(m => m.model_year)</dd>
+
+            <dt>Price:</dt>
+            <dd>@Math.Round(Model.gia_ban * (1 - Model.khuyen_mai) * 1000) đ</dd>
+
+            <dt>Wanrranty:</dt>
+            <dd>@Html.DisplayFor(m => m.bao_hanh) năm</dd>
+
+            <dt>Production Company Name:</dt>
+            <dd>@Html.DisplayFor(m => m.nsx.ten_nsx)</dd>
+
+            <dt>Status:</dt>
+            <dd>@(Model.is_con_hang ? "Stocking" : "") @(Model.is_het_hang ? "Out of stoking" : "") @(Model.is_khong_kinh_doanh ? "Not bussiness" : "")</dd>
+
+            <dt>Discription:</dt>
+            <dd>@Html.DisplayFor(m => m.mo_ta)</dd>
+
+        </dl>
+
+        @using (Html.BeginForm("add_to_cart", "Home", new { productId = Model.id_xe }, FormMethod.Post))
+        {
+            <div class="form-group">
+                <label class="control-label col-sm-3"> Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" class="form-control" style="width:80px;" />
+            </div>
+            <div class="button">
+
+                <button class="button-add-to-cart" type="submit" name="addToCart" value="btnAdd"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                <button class="button-buy-now" type="submit" name="buyNow" value="btnBuy">Buy Now</button>
+
+            </div>
+        }
+    </div>
+
+</div>
+
+
+
+

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebApplication2.Database.don_nhap_hang>
+@{
+    ViewBag.Title = "danh_sach_don_nhap_hang";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>danh_sach_don_nhap_hang</h2>
+
+<div>
+    <h2>Tìm kiếm</h2>
+    <form>
+        <input type="text" id="search" name="search" />
+        <button type="submit">Tìm </button>
+
+    </form>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.stt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_hoa_don_nhap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_nsx)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_chu_kho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngay_nhap_hang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_cua_hang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tong_tien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.stt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_hoa_don_nhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_nsx)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_chu_kho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngay_nhap_hang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_cua_hang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tong_tien)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "chi_tiet_dnh", new { id = item.id_hoa_don_nhap }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+

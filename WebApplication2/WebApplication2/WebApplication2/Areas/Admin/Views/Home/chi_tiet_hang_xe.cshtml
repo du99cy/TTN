@@ -1,0 +1,32 @@
+﻿@model WebApplication2.Database.hang_xe
+@{
+    ViewBag.Title = "chi_tiet_hang_xe";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>chi_tiet_hang_xe</h2>
+
+<div>
+    <h4>hang_xe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_hang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_hang)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

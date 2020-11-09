@@ -1,0 +1,71 @@
+﻿@model WebApplication2.Database.khach_hang
+@{
+    ViewBag.Title = "MyInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2 class="text-center">My Information</h2>
+
+<form id="editInforUser">
+    <table>
+        <tr>
+            <td>User Name:</td>
+            <td>
+                <input class="form-control" type="text" id="userName" name="UserName" value="@Model.UserName" />
+            </td>
+        </tr>
+        <tr>
+            <td>Customer Name:</td>
+            <td>
+                <input class="form-control" type="text" id="customerName" name="ten_khach_hang" value="@Model.ten_khach_hang" />
+            </td>
+        </tr>
+        <tr>
+            <td>Phone Number:</td>
+            <td>
+                <input class="form-control" type="text" id="phoneNumber" name="SDT" value="@Model.SDT" />
+            </td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>
+                <input class="form-control" type="text" id="address" name="dia_chi" value="@Model.dia_chi" />
+            </td>
+        </tr>
+
+    </table>
+
+
+
+</form>
+<div class="form-group">
+    <button class="btn btn-info " type="submit" onclick="editMyInfor()">
+
+        Save
+
+    </button>
+</div>
+<div id="msg">
+    <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"><strong>Update success!!!</strong></span></div>
+</div>
+<script>
+    $("#msg").hide();
+    function editMyInfor() {
+        var data = $("#editInforUser").serialize();
+        $.ajax({
+            type: "post",
+            data: data,
+            url: "/Account/EditInfor",
+            success: function (result) {
+                if (result == "success") {
+                    $("#msg").show();
+
+                }
+            }
+        })
+    }
+</script>
+

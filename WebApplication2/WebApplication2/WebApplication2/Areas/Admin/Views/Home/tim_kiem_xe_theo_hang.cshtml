@@ -1,0 +1,118 @@
+﻿@model IEnumerable<WebApplication2.Database.xe>
+@{
+    ViewBag.Title = "tim_kiem_xe_theo_hang";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>tim_kiem_xe_theo_hang</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.stt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_xe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ten_xe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_hang_xe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_loai_xe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model_year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gia_ban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bao_hanh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mo_ta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.khuyen_mai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_nsx)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_con_hang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_het_hang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_khong_kinh_doanh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.anh_xe)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.stt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_xe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ten_xe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_hang_xe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_loai_xe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model_year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gia_ban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bao_hanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mo_ta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.khuyen_mai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_nsx)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_con_hang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_het_hang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_khong_kinh_doanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anh_xe)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
